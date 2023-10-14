@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub, autoreconfHook, pkg-config, libxcb,
+{ lib, stdenv, fetchFromGitHub, autoreconfHook, pkg-config, libxcb, xcbutil,
   xcbutilkeysyms , xcbutilimage, pam, libX11, libev, cairo, libxkbcommon,
   libxkbfile, libjpeg_turbo, xcbutilxrm
 }:
@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [ autoreconfHook pkg-config ];
-  buildInputs = [ libxcb xcbutilkeysyms xcbutilimage pam libX11
+  buildInputs = [ libxcb xcbutil xcbutilkeysyms xcbutilimage pam libX11
     libev cairo libxkbcommon libxkbfile libjpeg_turbo xcbutilxrm ];
 
   makeFlags = [ "all" ];
