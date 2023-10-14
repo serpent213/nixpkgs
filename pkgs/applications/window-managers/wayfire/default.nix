@@ -8,6 +8,7 @@
 , wf-config
 , cairo
 , doctest
+, libGL
 , libdrm
 , libexecinfo
 , libinput
@@ -42,6 +43,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     wf-config
+    libGL
     libdrm
     libexecinfo
     libinput
