@@ -18,7 +18,6 @@
 , libadwaita
 , editorconfig-core-c
 , libxml2
-, pcre
 , appstream-glib
 , desktop-file-utils
 }:
@@ -54,7 +53,6 @@ stdenv.mkDerivation rec {
     gtksourceview5
     libadwaita
     editorconfig-core-c
-    pcre
   ];
 
   passthru = {
