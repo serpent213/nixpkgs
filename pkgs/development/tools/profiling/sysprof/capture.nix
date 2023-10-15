@@ -1,6 +1,5 @@
 { stdenv
 , lib
-, libunwind
 , meson
 , ninja
 , sysprof
@@ -14,10 +13,6 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     meson
     ninja
-  ];
-
-  buildInputs = [
-    libunwind
   ];
 
   mesonFlags = [
