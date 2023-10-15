@@ -13,12 +13,12 @@
 , gnome
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "tecla";
   version = "45.0";
 
   src = fetchurl {
-    url = "mirror://gnome/sources/${pname}/${lib.versions.major version}/${pname}-${version}.tar.xz";
+    url = "mirror://gnome/sources/tecla/${lib.versions.major finalAttrs.version}/tecla-${finalAttrs.version}.tar.xz";
     hash = "sha256-XAK7QBmxz/tWY9phB1A+/4U4Nqh4PdRwXdBKSfetwls=";
   };
 
@@ -52,4 +52,4 @@ stdenv.mkDerivation rec {
     platforms = platforms.unix;
     mainProgram = "tecla";
   };
-}
+})
