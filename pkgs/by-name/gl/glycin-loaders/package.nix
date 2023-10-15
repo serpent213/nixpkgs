@@ -16,12 +16,12 @@
 , gnome
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "glycin-loaders";
   version = "0.1.1";
 
   src = fetchurl {
-    url = "mirror://gnome/sources/glycin-loaders/${lib.versions.majorMinor version}/glycin-loaders-${version}.tar.xz";
+    url = "mirror://gnome/sources/glycin-loaders/${lib.versions.majorMinor finalAttrs.version}/glycin-loaders-${finalAttrs.version}.tar.xz";
     hash = "sha256-J8yzAsVymOKlXu78a8vMpodj+HtIBOy40KfkXHLfuVU=";
   };
 
@@ -59,4 +59,4 @@ stdenv.mkDerivation rec {
     license = with licenses; [ mpl20 /* or */ lgpl21Plus ];
     platforms = platforms.linux;
   };
-}
+})
