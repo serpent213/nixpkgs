@@ -1,6 +1,8 @@
 { stdenv
 , lib
 , fetchurl
+, substituteAll
+, bubblewrap
 , cargo
 , git
 , meson
@@ -22,6 +24,13 @@ stdenv.mkDerivation rec {
     url = "mirror://gnome/sources/glycin-loaders/${lib.versions.majorMinor version}/glycin-loaders-${version}.tar.xz";
     hash = "sha256-J8yzAsVymOKlXu78a8vMpodj+HtIBOy40KfkXHLfuVU=";
   };
+
+  patches = [
+    (substituteAll {
+      src = ./fix-paths.patch;
+      bwrap = "${bubblewrap}/bin/bwrap";
+    })
+  ];
 
   nativeBuildInputs = [
     cargo
