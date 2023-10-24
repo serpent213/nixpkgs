@@ -202,6 +202,14 @@ stdenv.mkDerivation {
         basename=$(basename "$variant")
         wrap $basename ${./ld-wrapper.sh} $variant
       done
+    ''
+    # Copy the lld-* variants if available.
+    + lib.optionalString isLLVM ''
+
+       for variant in $ldPath/${targetPrefix}lld-*; do
+        basename=$(basename "$variant")
+        wrap $basename ${./ld-wrapper.sh} $variant
+      done
     '';
 
   strictDeps = true;
