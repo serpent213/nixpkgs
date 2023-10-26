@@ -20,4 +20,7 @@ with lib;
 
   # Being headless, we don't need a GRUB splash image.
   boot.loader.grub.splashImage = null;
+
+  # Don't hang on missing ZFS keys
+  boot.zfs.requestEncryptionCredentials = false;
 }
